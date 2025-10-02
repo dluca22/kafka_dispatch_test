@@ -4,10 +4,12 @@
   "description": "test",
   "main": "index.js",
   "scripts": {
-    "test": "n"
+    "test": "echo 'No tests in place atm...'",
+    "dev": "ts-node-dev index.ts --watch"
   },
   "author": "me",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "kafkajs": "^2.2.4"
   },
