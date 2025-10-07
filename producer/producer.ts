@@ -28,21 +28,15 @@ const main = async () => {
 
 async function dispatchToTopics(data: string): Promise<void>{
   let topicsToSend = ['all'];
-  await producer.send({
-    topic: 'all',
-    messages: [
-      {value: data}
-    ]
-  });
-
-  if(isNum(data[0])) {
-    console.log( '### juwst to all >  ',  ) // MA SIIII che basta che va
-  } else if (startsInVowel(data[0])) {
+  const firstChar = data[0];
+  if(isNum(firstChar)) {
+    console.log( '### just sending to "all" topic')
+  } else if (startsInVowel(firstChar)) {
     topicsToSend.push('vowel');
-    console.log( '### sentTo vowel >  ',  ) // MA SIIII che basta che va
+    console.log( '### sentTo "vowel" & "all" topic')
   } else {
     topicsToSend.push('consonant');
-    console.log( '### sentTo CONSONANT >  ',  ) // MA SIIII che basta che va
+    console.log( '### sentTo "consonant" & "all" topic')
   }
   
   topicsToSend.forEach(async (to) => {
@@ -53,7 +47,7 @@ async function dispatchToTopics(data: string): Promise<void>{
       ]
     });
   })
-  // console.log( '### sent to kafka >  ' ) // MA SIIII che basta che va
+  
 }
 
 function startsInVowel(char: string){
@@ -64,11 +58,7 @@ function startsInVowel(char: string){
 function isNum(char:string){
   let num = parseInt(char);
 
-  return num != undefined || !isNaN(num);
+  return num != undefined && !isNaN(num);
 }
 
-// function test(){
-//   let word = 'culo';
-// }
 main();
-// test();

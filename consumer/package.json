@@ -5,16 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo 'No tests in place atm...'",
-    "dev": "ts-node-dev consumer.ts --watch"
+    "all": "ts-node-dev consumer.ts --watch all",
+    "vowel": "ts-node-dev consumer.ts --watch vowel",
+    "consonant": "ts-node-dev consumer.ts --watch consonant"
   },
   "author": "me",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "kafkajs": "^2.2.4"
   },
   "devDependencies": {
-    "@types/node": "^24.6.2",
+    "@types/kafkajs": "^1.8.2",
+    "@types/node": "^24.7.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
   }
