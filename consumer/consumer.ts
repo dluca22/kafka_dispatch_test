@@ -6,7 +6,7 @@ const kafka = new Kafka({
   brokers: [`${process.env.KAFKA_BROKER_IP}:${process.env.KAFKA_BROKER_PORT_1}`]
 })
 
-const consumer = kafka.consumer({ groupId: 'test-consumer' });
+const consumer = kafka.consumer({ groupId: `${process.argv[3]}-consumer` });
 
 const main = async () => {
   const consumerTopic = process.argv[3];
